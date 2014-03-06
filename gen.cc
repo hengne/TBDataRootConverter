@@ -9,6 +9,12 @@
 #include <time.h> 
 #include <cmath>
 
+// PADE data to ROOT Tree converter
+
+// author: Hengne Li @ UVa
+//  date:  28 Feb. 2014
+
+
 int main(int argc, char* argv[])
 {
  
@@ -45,7 +51,7 @@ int main(int argc, char* argv[])
         {
           double norm = rand()%100;
           double x = 13.33333*(ix+0.1);
-          double data = norm*x*exp(1.0-0.05*x);
+          double data = norm*x*exp(1.0-0.03*x);
           myfile_out << data << " ";
         }
         myfile_out << std::endl;
