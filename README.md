@@ -1,14 +1,13 @@
 TBDataRootConverter
 ===================
-
+ Hengne Li @ UVa
 
   Instructions about how to use:
 
-  You can find the following 3 files in the attachments:
+  You can find the following 3 files:
 
     compile.sh
-    gen.cc
-    convert.cc
+    convert1.cc
 
    You must have a ROOT installation somewhere in your system, and you have the ROOT environment setup already before continue here.
 
@@ -18,63 +17,58 @@ TBDataRootConverter
  
    You will then have another two executable created:
 
-     gen.exe
-     convert.exe
-
-   Generate the fake data:
-
-     ./gen.exe <fake data file name>  <number of events>
-
-   for example:
-
-     ./gen.exe  fakedata.dat 1000
-
-   This generate a fake data file named "fakedata.dat" contains 1000 evnets.
-
+     convert1.exe
 
    Convert to ROOT file:
 
-     ./convert.exe  <input data file> <output root file>
+     ./convert1.exe  <input data file> <output root file>
 
 e.g.
 
-     ./convert.exe fakedata.dat  fakedata.root
+     ./convert1.exe data.txt  data.root
 
-Now you will have the "fakedata.root" converted from the "fakedata.dat" file.
 
 Then, just run ROOT as you want to look at this fakedata.root file.
 
 E.g.
 
-     root -l fakedata.root
+     root -l data.root
 
 
-you will see something like:
+ Data structure inside the Tree:
 
-     #########
-     Welcome to the ROOT tutorials
-     Type ".x demos.C" to get a toolbar from which to execute the demos
-     Type ".x demoshelp.C" to see the help window
-        
-     ==> Many tutorials use the file hsimple.root produced by hsimple.C 
-     ==> It is recommended to execute hsimple.C before any other script
-       
-     root [0]
-     Attaching file fakedata.root as _file0...
-     
-     root [1] tree->Show(0)
-     
-     ======> EVENT:0
-     
-      time_stamp      = 500
-      trig_number     = 11
-      board           = 0
-      channle         = 0
-      ndata           = 13
-      data            = 132.234,
-                       402.126, 1820.59, 668.576, 753.425, 43.1818,
-                       318.209, 40.7478, 102.098, 51.2425, 43.146,
-                       16.9679, 8.25775
-     root [2]
-      
-     ##################
+   root [3] tree->Show(1)
+   ======> EVENT:1
+    time_stamp      = 3/1/2014 5:32:55 PM
+    event           = 2
+    channel         = 17
+    ndata           = 512
+    data            = 98,
+                    100, 101, 99, 99, 100, 103, 101, 101, 98, 100,
+                  99, 101, 100, 101, 100, 100, 101, 101, 99
+
+   
+Some data files are available on AFS:
+
+/afs/cern.ch/work/h/heli/public/TestBeam/
+
+03032014_1.dat
+03052014_2.dat
+
+One can use to make a test. I contains some pulse shapes as the following file in this directory:
+
+pulse.pdf
+
+Also, you can find another .pdf file which is the PADE DAQ insturctions:
+
+pCT_PADEinstructions.pdf
+
+
+
+
+
+
+
+
+
+   
